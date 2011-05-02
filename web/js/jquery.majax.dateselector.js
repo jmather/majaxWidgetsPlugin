@@ -28,7 +28,7 @@
 			m = $('#'+this.options['id']+'_month').val();
 			d = $('#'+this.options['id']+'_day').val();
 			y = $('#'+this.options['id']+'_year').val();
-			if (parseInt(m) > 0 && parseInt(d) > 0 && parseInt(y) > 0)
+			if (parseInt(m, 10) > 0 && parseInt(d, 10) > 0 && parseInt(y, 10) > 0)
 			{
 				$('#'+this.options['id']+'_display').val(this._zero_pad(m, 2)+'/'+this._zero_pad(d, 2)+'/'+y);
 			}
@@ -74,11 +74,11 @@
 			d = vals[1];
 			y = vals[2];
 
-			if (parseInt(m) > 0 && parseInt(d) > 0 && parseInt(y) > 0)
+			if (parseInt(m, 10) > 0 && parseInt(d, 10) > 0 && parseInt(y, 10) > 0)
 			{
-				$('#'+this.options['id']+'_month').val(parseInt(m));
-				$('#'+this.options['id']+'_day').val(parseInt(d));
-				$('#'+this.options['id']+'_year').val(parseInt(y));
+				$('#'+this.options['id']+'_month').val(parseInt(m, 10));
+				$('#'+this.options['id']+'_day').val(parseInt(d, 10));
+				$('#'+this.options['id']+'_year').val(parseInt(y, 10));
 			}
 		},
 		_hide_real_ctrls: function() {
