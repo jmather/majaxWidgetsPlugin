@@ -107,7 +107,7 @@
 			m = $('#'+this.options['id']+'_month').val();
 			d = $('#'+this.options['id']+'_day').val();
 			y = $('#'+this.options['id']+'_year').val();
-			if (parseInt(m) > 0 && parseInt(d) > 0 && parseInt(y) > 0)
+			if (parseInt(m, 10) > 0 && parseInt(d, 10) > 0 && parseInt(y, 10) > 0)
 			{
 				this.options['date'].val(this._zero_pad(m, 2)+'/'+this._zero_pad(d, 2)+'/'+y);
 			}
@@ -116,7 +116,7 @@
 			var hrs = $('#'+this.options['id']+'_hour').val();
 			if (hrs != '')
 			{
-				hrs = parseInt(hrs);
+				hrs = parseInt(hrs, 10);
 				if (hrs < 12)
 					this.options['ampm'].val('am');
 				if (hrs >= 12)
@@ -135,13 +135,13 @@
 			var mins = $('#'+this.options['id']+'_minute').val();
 			if (mins != '')
 			{
-				mins = parseInt(mins);
+				mins = parseInt(mins, 10);
 				this.options['minutes'].val(mins);
 			}
 
 			if (this.options['seconds'] && $('#'+this.options['id']+'_second').val() != '')
 			{
-				this.options['minutes'].val(parseInt($('#'+this.options['id']+'_second').val()));
+				this.options['minutes'].val(parseInt($('#'+this.options['id']+'_second').val(), 10));
 			}
 		},
 		_clear_display: function() {
@@ -178,11 +178,11 @@
 			d = vals[1];
 			y = vals[2];
 
-			if (parseInt(m) > 0 && parseInt(d) > 0 && parseInt(y) > 0)
+			if (parseInt(m, 10) > 0 && parseInt(d, 10) > 0 && parseInt(y, 10) > 0)
 			{
-				$('#'+this.options['id']+'_month').val(parseInt(m));
-				$('#'+this.options['id']+'_day').val(parseInt(d));
-				$('#'+this.options['id']+'_year').val(parseInt(y));
+				$('#'+this.options['id']+'_month').val(parseInt(m, 10));
+				$('#'+this.options['id']+'_day').val(parseInt(d, 10));
+				$('#'+this.options['id']+'_year').val(parseInt(y, 10));
 			}
 
 
@@ -193,16 +193,16 @@
 				hrs = 0;
 			else
 				hrs = 12;
-			hrs += parseInt(this.options['hours'].val());
+			hrs += parseInt(this.options['hours'].val(), 10);
 			if (hrs == 12)
 				hrs = 0;
 			if (hrs == 24)
 				hrs = 12;
 
-			mins = parseInt(this.options['minutes'].val());
+			mins = parseInt(this.options['minutes'].val(), 10);
 
 			if (this.options['seconds'])
-				secs = parseInt(this.options['seconds'].val());
+				secs = parseInt(this.options['seconds'].val(), 10);
 
 			if (this.options['time_can_be_empty'] && this.options['ampm'].val() == '' && this.options['hours'].val() == '')
 			{
