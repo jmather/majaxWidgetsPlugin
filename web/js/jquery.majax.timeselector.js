@@ -91,7 +91,7 @@
 			var hrs = $('#'+this.options['id']+'_hour').val();
 			if (hrs != '')
 			{
-				hrs = parseInt(hrs);
+				hrs = parseInt(hrs, 10);
 				if (hrs < 12)
 					this.options['ampm'].val('am');
 				if (hrs >= 12)
@@ -110,13 +110,13 @@
 			var mins = $('#'+this.options['id']+'_minute').val();
 			if (mins != '')
 			{
-				mins = parseInt(mins);
+				mins = parseInt(mins, 10);
 				this.options['minutes'].val(mins);
 			}
 
 			if (this.options['seconds'] && $('#'+this.options['id']+'_second').val() != '')
 			{
-				this.options['minutes'].val(parseInt($('#'+this.options['id']+'_second').val()));
+				this.options['minutes'].val(parseInt($('#'+this.options['id']+'_second').val(), 10));
 			}
 		},
 		_clear_display: function() {
@@ -135,16 +135,16 @@
 				hrs = 0;
 			else
 				hrs = 12;
-			hrs += parseInt(this.options['hours'].val());
+			hrs += parseInt(this.options['hours'].val(), 10);
 			if (hrs == 12)
 				hrs = 0;
 			if (hrs == 24)
 				hrs = 12;
 
-			mins = parseInt(this.options['minutes'].val());
+			mins = parseInt(this.options['minutes'].val(), 10);
 
 			if (this.options['seconds'])
-				secs = parseInt(this.options['seconds'].val());
+				secs = parseInt(this.options['seconds'].val(), 10);
 
 			if (this.options['can_be_empty'] && this.options['ampm'].val() == '' && this.options['hours'].val() == '')
 			{
